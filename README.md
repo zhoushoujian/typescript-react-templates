@@ -2,4 +2,4 @@
 
 ## Framework
 
-react + typescript + webpack + less + css module + react-loadable + eslint
+react + redux + typescript + webpack + less + css module + react-loadable + eslint + axios封装拦截器

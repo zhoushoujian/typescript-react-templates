@@ -2,7 +2,6 @@ module.exports = {
   extends: [
     "@shuyun-ep-team/eslint-config"
   ],
-  parser: "babel-eslint",
   parserOptions: {
     target: "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
     module: "ESNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
@@ -12,13 +11,13 @@ module.exports = {
       jsx: true,
       modules: true,
     },
+    createDefaultProgram: true
   },
   globals: {
     Babel: true,
     React: true,
   },
   rules: {
-    "no-alert": 0,
     'max-len': [
       'error',
       160,
@@ -32,15 +31,9 @@ module.exports = {
       }
     ], //强制行的最大长度
     "no-tabs": 0,
-    "no-mixed-spaces-and-tabs": 0,
-    "no-nested-ternary": 0,
-    "react/jsx-filename-extension": 0,
-    "require-atomic-updates": 0,
-    "react/no-unescaped-entities": 0,
     "class-methods-use-this": 0,
     semi: 0,
-    "no-return-assign": 0,
-    "dot-notation": 0
+    "@typescript-eslint/semi": 0,
   },
   env: {
     browser: true,

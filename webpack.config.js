@@ -11,6 +11,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const tsImportPluginFactory = require('ts-import-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const tsconfig = JSON.parse(stripJsonComments(fs.readFileSync(path.resolve(__dirname, './tsconfig.json')).toString()));
 const analyze = process.env.npm_config_report ? true : false;
@@ -112,7 +113,14 @@ const webpackConfig = {
       }
     }),
     analyze ? new BundleAnalyzerPlugin() : () => { },
-    new webpack.optimize.ModuleConcatenationPlugin()
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      include: /src/,
+      failOnError: true,
+      allowAsyncCycles: false,
+      cwd: process.cwd(),
+    }),
   ],
   optimization: {
     minimizer: [
