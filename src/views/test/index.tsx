@@ -3,8 +3,9 @@ import Loadable from 'react-loadable';
 import { connect } from 'react-redux';
 import Loading from "@/components/loading"
 import { updateRedux } from "@/ducks/common"
+import { $getState, $dispatch } from "../../index"
 
-console.log('get redux data => ', window.$getState().common.redux)
+console.log('get redux data => ', $getState().common.redux)
 
 const Test = ({ redux }) => {
 
@@ -12,7 +13,7 @@ const Test = ({ redux }) => {
 
   useEffect(() => {
     Loadable.preloadAll();
-    window.$dispatch(updateRedux('redux update'))
+    $dispatch(updateRedux('redux update'))
   }, [])
 
   return (

@@ -19,8 +19,8 @@ middleware.push(createLogger({
   collapsed: false,
 }));
 const store = createStore(reducer, compose(applyMiddleware(...middleware)));
-window.$dispatch = store.dispatch;
-window.$getState = store.getState;
+export const $dispatch = store.dispatch;
+export const $getState = store.getState;
 
 axiosInterceptorsConfig()
 
