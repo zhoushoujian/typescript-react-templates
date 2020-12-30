@@ -17,7 +17,7 @@ const Test = ({ redux }) => {
   }, [])
 
   return (
-    <Loading text="Loading" />
+    <Loading text="Put your text here" />
   )
 }
 
