@@ -1,0 +1,39 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false, // 对ES6的模块文件不做转化，以便使用tree shaking、sideEffects等
+        "useBuiltIns": "usage",
+        "corejs": {
+          "version": 3,
+          "proposals": true
+        },
+        "debug": false
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": {
+          "version": 3,
+          "proposals": true
+        },
+        "useESModules": true
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "kylin-ui",
+        "libraryDirectory": "lib",
+        "style": "css"
+      }
+    ]
+  ]
+}

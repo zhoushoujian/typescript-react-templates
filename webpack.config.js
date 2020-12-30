@@ -58,20 +58,8 @@ const webpackConfig = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          transpileOnly: true,
-          compilerOptions,
-          getCustomTransformers: () => ({
-            before: [
-              tsImportPluginFactory({
-                libraryDirectory: 'es',
-                libraryName: 'kylin-ui'
-              })
-            ]
-          })
-        }
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|jpeg|ttf|woff|woff2|eot|svg)$/i,
@@ -172,7 +160,9 @@ const webpackConfig = {
     }
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    host: "0.0.0.0",
+    useLocalIp: true
   },
 }
 
