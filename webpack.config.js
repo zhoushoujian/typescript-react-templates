@@ -1,7 +1,5 @@
 /* eslint-disable camelcase */
-const fs = require('fs');
 const path = require('path');
-const stripJsonComments = require('strip-json-comments');
 const webpack = require('webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,16 +8,14 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-const tsImportPluginFactory = require('ts-import-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-const tsconfig = JSON.parse(stripJsonComments(fs.readFileSync(path.resolve(__dirname, './tsconfig.json')).toString()));
 const analyze = process.env.npm_config_report ? true : false;
 const isDev = process.env.NODE_ENV !== "production" ? true : false;
 console.info("isDev", isDev);
 const smp = new SpeedMeasurePlugin();
 
-const { compilerOptions } = tsconfig;
+process.env.NODE_ENV = isDev ? "development" : "production"
 
 const webpackConfig = {
   entry: ['./src/index.tsx'],
@@ -58,20 +54,8 @@ const webpackConfig = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          transpileOnly: true,
-          compilerOptions,
-          getCustomTransformers: () => ({
-            before: [
-              tsImportPluginFactory({
-                libraryDirectory: 'es',
-                libraryName: 'kylin-ui'
-              })
-            ]
-          })
-        }
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpg|jpeg|ttf|woff|woff2|eot|svg)$/i,
@@ -172,7 +156,9 @@ const webpackConfig = {
     }
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    host: "0.0.0.0",
+    useLocalIp: true
   },
 }
 

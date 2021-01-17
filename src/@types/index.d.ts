@@ -8,6 +8,5 @@ interface Window {
   getRoute: () => void;
   goRouteClass: (a: any, b: string) => void;
   APP_CONFIG: any;
-  $dispatch: any;
-  $getState: any
+  logger: any;
 }
