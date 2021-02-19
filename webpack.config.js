@@ -25,7 +25,7 @@ const webpackConfig = {
     filename: 'js/main.min.js',
     chunkFilename: 'js/[name].min.chunk.js?[hash:8]'
   },
-  devtool: isDev ? 'cheap-module-eval-source-map' : 'nosources-source-map',
+  devtool: isDev ? 'cheap-module-eval-source-map' : 'hidden-source-map',
   mode: isDev ? 'development' : 'production',
   module: {
     strictExportPresence: true,
@@ -152,7 +152,7 @@ const webpackConfig = {
       })
     ],
     alias: {
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, './src')
     }
   },
   devServer: {
