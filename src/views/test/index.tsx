@@ -12,6 +12,7 @@ const Test = ({ redux }) => {
   console.log("redux => ", redux)
 
   useEffect(() => {
+    // console.log("Object.fromEntries", Object.fromEntries)
     Loadable.preloadAll();
     $dispatch(updateRedux('redux update'))
   }, [])

@@ -18,16 +18,6 @@
   "plugins": [
     "react-hot-loader/babel",
     [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": {
-          "version": 3,
-          "proposals": true
-        },
-        "useESModules": true
-      }
-    ],
-    [
       "import",
       {
         "libraryName": "kylin-ui",
