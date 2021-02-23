@@ -9,6 +9,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const analyze = process.env.npm_config_report ? true : false;
 const isDev = process.env.NODE_ENV !== "production" ? true : false;
@@ -49,12 +50,13 @@ const webpackConfig = {
                 javascriptEnabled: true
               }
             }
-          }
+          },
+          'postcss-loader',
         ]
       },
       {
-        test: /\.tsx?$/,
-        loader: 'babel-loader',
+        test: /.tsx?$/,
+        use: ['thread-loader', 'cache-loader', 'babel-loader'],
         exclude: /node_modules/
       },
       {
@@ -96,7 +98,9 @@ const webpackConfig = {
         }
       }
     }),
-    analyze ? new BundleAnalyzerPlugin() : () => { },
+    new HardSourceWebpackPlugin(),
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    analyze ? new BundleAnalyzerPlugin() : () => {},
     new webpack.optimize.ModuleConcatenationPlugin(),
     new CircularDependencyPlugin({
       exclude: /node_modules/,

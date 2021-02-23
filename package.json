@@ -8,7 +8,8 @@
 	"scripts": {
 		"eslint": "eslint -c .eslintrc.js  \"./src/**/*.{js,ts,tsx,jsx}\"",
 		"start": "webpack-dev-server --open --history-api-fallback -d --colors",
-		"build": "cross-env NODE_ENV=production webpack --progress --colors",
+    "build": "npm run build:dll && cross-env NODE_ENV=production webpack --progress --colors",
+    "build:dll": "webpack --config webpack.config.dll.js",
 		"buildDebug": "webpack --progress --colors",
 		"analyze": "cross-env NODE_ENV=production npm_config_report=true npm run build"
 	},
@@ -51,6 +52,7 @@
 		"autoprefixer": "^9.5.1",
 		"babel-loader": "^8.1.0",
 		"babel-plugin-import": "^1.11.2",
+		"cache-loader": "^4.1.0",
 		"circular-dependency-plugin": "^5.2.2",
 		"cross-env": "^5.2.0",
 		"css-loader": "^0.28.9",
@@ -62,6 +64,7 @@
 		"eslint-plugin-react": "^7.20.0",
 		"eslint-plugin-react-hooks": "^4.0.4",
 		"file-loader": "^1.1.11",
+		"hard-source-webpack-plugin": "^0.13.1",
 		"html-webpack-plugin": "4.0.0-beta.5",
 		"husky": "^4.3.0",
 		"less": "^3.9.0",
@@ -72,6 +75,7 @@
 		"react-hot-loader": "^4.13.0",
 		"speed-measure-webpack-plugin": "^1.3.3",
 		"style-loader": "^2.0.0",
+		"thread-loader": "^3.0.1",
 		"tsconfig-paths-webpack-plugin": "^3.3.0",
 		"typescript": "^3.9.7",
 		"uglifyjs-webpack-plugin": "^1.1.6",
