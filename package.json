@@ -11,7 +11,7 @@
     "build": "npm run build:dll && cross-env NODE_ENV=production webpack --progress --colors",
     "build:dll": "webpack --config webpack.config.dll.js",
 		"buildDebug": "webpack --progress --colors",
-		"analyze": "cross-env NODE_ENV=production npm_config_report=true npm run build"
+		"analyze": "cross-env npm_config_report=true npm run build"
 	},
 	"husky": {
 		"hooks": {
