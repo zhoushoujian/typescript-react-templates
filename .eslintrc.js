@@ -34,6 +34,7 @@ module.exports = {
     "class-methods-use-this": 0,
     semi: 0,
     "@typescript-eslint/semi": 0,
+    "no-restricted-imports": 0
   },
   env: {
     browser: true,

@@ -1,4 +1,4 @@
-import { message } from '@shuyun-ep-team/kylin-ui';
+import { message } from 'antd';
 import * as axiosPackage from 'axios';
 
 const axiosPendingArr: { u: string, cancel: () => void }[] = []
@@ -39,8 +39,6 @@ export const axiosInterceptorsConfig = () => {
       try {
         const tokenInfo = JSON.parse(token)
         config.headers.Authorization = tokenInfo.access_token;
-        config.headers["collection-Name"] = localStorage.getItem('collectionName');
-        config.headers["recent-Time"] = localStorage.getItem('recentTimeRecord');
       } catch (err) {
         console.error('axios.interceptors parse token err', err)
       }
