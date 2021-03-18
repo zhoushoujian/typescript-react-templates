@@ -9,6 +9,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const analyze = process.env.npm_config_report ? true : false;
 const isDev = process.env.NODE_ENV !== "production" ? true : false;
@@ -31,9 +32,9 @@ const webpackConfig = {
     strictExportPresence: true,
     rules: [
       {
-        test: /\.less$/,
+        test: /\.css$|\.less$/,
         use: [
-          { loader: 'style-loader'}, 
+          { loader: MiniCssExtractPlugin.loader },
           {
             loader: 'css-loader',
             options: {
@@ -41,11 +42,12 @@ const webpackConfig = {
                 localIdentName: isDev ? '[path][name]_[local]_[hash:base64:5]' : '[hash:base64]',
               },
             },
-          }, 
+          },
           {
             loader: 'less-loader',
             options: {
               lessOptions: {
+                modifyVars: { "@primary-color": "#000" },
                 javascriptEnabled: true
               }
             }
@@ -54,7 +56,7 @@ const webpackConfig = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'babel-loader',
+        use: ['thread-loader', 'cache-loader', 'babel-loader'],
         exclude: /node_modules/
       },
       {
@@ -81,6 +83,13 @@ const webpackConfig = {
       cache: true,
       title: "typescript-react-templates",
       showErrors: true
+    }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: true, // Enable to remove warnings about conflicting order
     }),
     new ParallelUglifyPlugin({
       cacheDir: '.cache/',
