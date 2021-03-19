@@ -1,3 +1,7 @@
+:root{
+  --primary-color: #000;
+}
+
 .loading {
   width: 100%;
   height: 100vh;
@@ -7,10 +11,13 @@
   font-weight: 800;
   font-size: 32px;
   overflow: hidden;
-  color: #dbdbdb;
   position: fixed;
   margin-top: -50px;
   animation: flickerAnimation 2s infinite;
+  cursor: pointer;
+  user-select: none;
+  color: var(--primary-color);
+  transition: all 1.6s;
 }
 
 @keyframes flickerAnimation {
