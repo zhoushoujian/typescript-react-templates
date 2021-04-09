@@ -52,6 +52,7 @@
 		"babel-loader": "^8.1.0",
 		"babel-plugin-import": "^1.11.2",
 		"cache-loader": "^4.1.0",
+		"case-sensitive-paths-webpack-plugin": "^2.4.0",
 		"circular-dependency-plugin": "^5.2.2",
 		"cross-env": "^5.2.0",
 		"css-loader": "^3.5.3",

@@ -10,6 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const analyze = process.env.npm_config_report ? true : false;
 const isDev = process.env.NODE_ENV !== "production" ? true : false;
@@ -105,6 +106,7 @@ const webpackConfig = {
         }
       }
     }),
+    new CaseSensitivePathsPlugin(),
     analyze ? new BundleAnalyzerPlugin() : () => { },
     new webpack.optimize.ModuleConcatenationPlugin(),
     new CircularDependencyPlugin({
