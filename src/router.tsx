@@ -1,8 +1,10 @@
-/* eslint-disable new-cap */
+/** @format */
+
 import React, {Component} from "react";
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import MyLoadable from "./Loadable";
 
+// eslint-disable-next-line new-cap
 const Test = MyLoadable({
   loader: () => import("./views/test"),
 });

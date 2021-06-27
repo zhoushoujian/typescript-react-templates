@@ -1,7 +1,7 @@
+/** @format */
+
 module.exports = {
-  extends: [
-    "@shuyun-ep-team/eslint-config"
-  ],
+  extends: ["@shuyun-ep-team/eslint-config"],
   parserOptions: {
     target: "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
     module: "ESNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
@@ -11,34 +11,19 @@ module.exports = {
       jsx: true,
       modules: true,
     },
-    createDefaultProgram: true
+    createDefaultProgram: true,
   },
   globals: {
     Babel: true,
     React: true,
   },
   rules: {
-    'max-len': [
-      'error',
-      160,
-      2,
-      {
-        ignoreUrls: true,
-        ignoreComments: false,
-        ignoreRegExpLiterals: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true
-      }
-    ], //强制行的最大长度
-    "no-tabs": 0,
     "class-methods-use-this": 0,
-    semi: 0,
-    "@typescript-eslint/semi": 0,
   },
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
   },
   settings: {
     react: {
@@ -54,7 +39,7 @@ module.exports = {
     linkComponents: [
       // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
       "Hyperlink",
-      { name: "Link", linkAttribute: "to" },
+      {name: "Link", linkAttribute: "to"},
     ],
     "import/resolver": {
       node: {
