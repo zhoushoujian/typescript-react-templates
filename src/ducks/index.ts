@@ -1,17 +1,17 @@
-import {combineReducers} from "redux";
+import { combineReducers } from 'redux';
 
-import common from "./common";
+import common from './common';
 
 const reducersMap = {
   common: {
-    common
+    common,
   },
 };
 
 export default combineReducers({
   ...Object.keys(reducersMap).reduce(
     (item, total) =>
-    // eslint-disable-next-line implicit-arrow-linebreak
+      // eslint-disable-next-line implicit-arrow-linebreak
       Object.assign({}, item, {
         [total]: (state, action) => {
           if (!state) {
@@ -21,11 +21,12 @@ export default combineReducers({
           } else {
             Object.keys(reducersMap[total]).map(i => {
               // eslint-disable-next-line no-return-assign
-              return state = Object.assign({}, state, reducersMap[total][i](state, action));
+              return (state = Object.assign({}, state, reducersMap[total][i](state, action)));
             });
             return state;
           }
-        }
-      }), {}
-  )
+        },
+      }),
+    {},
+  ),
 });

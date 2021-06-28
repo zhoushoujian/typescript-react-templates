@@ -1,21 +1,19 @@
-/** @format */
-
-import React, {Component} from "react";
-import {HashRouter as Router, Route, Switch} from "react-router-dom";
-import MyLoadable from "./Loadable";
+import React, { Component } from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import MyLoadable from './Loadable';
 
 // eslint-disable-next-line new-cap
 const Test = MyLoadable({
-  loader: () => import("./views/test"),
+  loader: () => import('./views/test'),
 });
 
 class Routers extends Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className='container'>
           <Switch>
-            <Route path="/" exact={true} component={Test} />
+            <Route path='/' exact={true} component={Test} />
           </Switch>
         </div>
       </Router>
