@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Loading from '@/components/loading';
 import { updateRedux } from '@/ducks/common';
 import { $getState, $dispatch } from '@/ducks/main';
+import Style from './index.less';
 
 console.log('get redux data => ', $getState().common.redux);
 
@@ -16,7 +17,19 @@ const Test = ({ redux }) => {
     $dispatch(updateRedux('redux update'));
   }, []);
 
-  return <Loading text='Put your text here' />;
+  return (
+    <div className={Style.testContainer}>
+      <div className={Style.content}>
+        <div className={Style.calculator}>
+          <div className={Style.blueball}>
+            <div className={Style.blueball1}></div>
+            <div className={Style.blueball2}></div>
+            <Loading text='Click me' />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const mapStateToProps = state => {

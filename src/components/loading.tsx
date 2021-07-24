@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './index.less';
 
-const colors = ['#000', '#ff0', '#f00', '#f0f', '#0ff', '#00f', '#0f0'];
+const colors = ['#fff', '#ff0', '#f00', '#f0f', '#0ff', '#00f', '#0f0'];
 
 const Loading = ({ text = 'loading' }) => {
   const changeColor = () => {
