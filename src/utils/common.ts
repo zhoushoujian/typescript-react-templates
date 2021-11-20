@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { message } from '@shuyun-ep-team/kylin-ui';
 import * as axiosPackage from 'axios';
 

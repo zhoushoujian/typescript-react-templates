@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import Loadable from 'react-loadable';
 import { connect } from 'react-redux';
@@ -12,7 +13,7 @@ const Test = ({ redux }) => {
   console.log('redux => ', redux);
 
   useEffect(() => {
-    // console.log("Object.fromEntries", Object.fromEntries)
+    // console.log('Object.fromEntries', Object.fromEntries);
     Loadable.preloadAll();
     $dispatch(updateRedux('redux update'));
   }, []);
