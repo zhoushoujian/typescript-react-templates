@@ -5,7 +5,7 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 const commonConf = require('./common');
 
 module.exports = merge(commonConf, {
-  entry: ['webpack-hot-middleware/client?name=pure', path.join(__dirname, '../src/index.tsx')],
+  entry: ['webpack-hot-middleware/client?name=pure', path.join(__dirname, '../src/index.tsx'), 'antd/dist/antd.css'],
   mode: 'development',
   devtool: 'source-map',
   plugins: [
@@ -21,7 +21,6 @@ module.exports = merge(commonConf, {
       allowAsyncCycles: false,
       cwd: process.cwd(),
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, '../public'),

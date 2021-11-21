@@ -1,20 +1,17 @@
 /* eslint-disable no-console */
 const path = require('path');
-const webpack = require('webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
+const srcPath = path.join(__dirname, '../src');
 const analyze = process.env.npm_config_report ? true : false;
 const isDev = process.env.NODE_ENV !== 'production' ? true : false;
 console.info('isDev', isDev);
 
 const webpackConfig = {
-  entry: [path.join(__dirname, '../src/index.tsx')],
   output: {
     path: path.resolve(__dirname, '../build'),
     publicPath: '',
@@ -29,7 +26,15 @@ const webpackConfig = {
     strictExportPresence: true,
     rules: [
       {
+        test: /\.css$/,
+        include: /node_modules/,
+        exclude: srcPath,
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
+      {
         test: /\.css$|\.less$/,
+        include: srcPath,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader',
@@ -80,20 +85,10 @@ const webpackConfig = {
     }),
     new CaseSensitivePathsPlugin(),
     analyze ? new BundleAnalyzerPlugin() : () => {},
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new CircularDependencyPlugin({
-      exclude: /node_modules/,
-      include: /src/,
-      failOnError: true,
-      allowAsyncCycles: false,
-      cwd: process.cwd(),
-    }),
   ],
   optimization: {
-    minimize: true,
     concatenateModules: true,
     usedExports: true, //只导出被使用的模块
-    minimizer: [new OptimizeCSSAssetsPlugin({})],
     splitChunks: {
       chunks: 'async',
       minSize: 30000,
@@ -118,9 +113,6 @@ const webpackConfig = {
           enforce: true,
         },
       },
-    },
-    runtimeChunk: {
-      name: 'manifest',
     },
   },
   resolve: {

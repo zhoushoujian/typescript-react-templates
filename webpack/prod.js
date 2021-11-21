@@ -2,6 +2,7 @@
 process.env.NODE_ENV = 'production';
 process.env.BABEL_ENV = 'production';
 
+const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -13,6 +14,7 @@ const smp = new SpeedMeasurePlugin();
 
 module.exports = smp.wrap(
   merge(commonConf, {
+    entry: [path.join(__dirname, '../src/index.tsx'), 'antd/dist/antd.css'],
     mode: 'production',
     devtool: 'hidden-source-map',
     plugins: [

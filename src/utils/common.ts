@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { message } from '@shuyun-ep-team/kylin-ui';
+import { message } from 'antd';
 import * as axiosPackage from 'axios';
 
 const axiosPendingArr: { u: string; cancel: () => void }[] = [];
