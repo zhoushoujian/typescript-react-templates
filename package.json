@@ -6,7 +6,7 @@
   "author": "shoujian zhou",
   "description": "typescript-react-templates",
   "scripts": {
-    "codeCheck": "eslint -c .eslintrc.js  \"./src/**/*.{js,ts,tsx,jsx}\" --fix && npm run typeCheck",
+    "codeCheck": "eslint -c .eslintrc.js \"./src/**/*.{js,ts,tsx,jsx}\" --fix && npm run typeCheck",
     "prestart": "npx version-check",
     "start": "cross-env NODE_ENV=development ts-node www.ts",
     "analyzer": "webpack --config webpack/analyzer.ts",

@@ -1,2 +1,2 @@
-vite.config.ts
-.eslintrc.js
+node_modules
+dist
