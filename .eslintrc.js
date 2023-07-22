@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@shuyun-ep-team/eslint-config'],
+  extends: ['@shuyun-ep-team'],
   parserOptions: {
     target:
       'es5' /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
@@ -14,7 +14,5 @@ module.exports = {
     project: './tsconfig.json',
     createDefaultProgram: true,
   },
-  rules: {
-    'no-restricted-imports': 0,
-  },
+  rules: {},
 };

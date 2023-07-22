@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import MyLoadable from './Loadable';
+import React, { Component, lazy } from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
-// eslint-disable-next-line new-cap
-const Test = MyLoadable({
-  loader: () => import('./views/test'),
-});
+const Test = lazy(() => import('./views/index'));
 
 class Routers extends Component {
   render() {
     return (
       <Router>
-        <div className='container'>
-          <Switch>
-            <Route path='/' exact={true} component={Test} />
-          </Switch>
-        </div>
+        <Routes>
+          <Route element={<Test />} path='/' />
+        </Routes>
       </Router>
     );
   }

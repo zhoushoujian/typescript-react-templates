@@ -19,7 +19,6 @@
     "source.fixAll.eslint": true
   },
   "editor.tabSize": 2,
-  "stylelint.packageManager": "yarn",
   "stylelint.syntax": "less",
   "stylelint.validate": [
     "css",

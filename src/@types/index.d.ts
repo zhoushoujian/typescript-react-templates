@@ -5,8 +5,4 @@ declare module '*.less' {
 
 interface Window {
   axios: any;
-  getRoute: () => void;
-  goRouteClass: (a: any, b: string) => void;
-  APP_CONFIG: any;
-  logger: any;
 }

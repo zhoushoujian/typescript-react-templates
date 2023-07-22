@@ -1,5 +1,5 @@
 module.exports = {
-  dependenceArr: ['@shuyun-ep-team/eslint-config'],
+  dependenceArr: ['eslint-config-ts-base'],
   ignoreCheck: false,
   onlyWarn: false,
   checkAllLocalDependencies: false,

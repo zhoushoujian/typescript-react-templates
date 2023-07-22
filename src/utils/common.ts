@@ -22,9 +22,9 @@ export const axiosInterceptorsConfig = () => {
   window.axios.defaults.timeout = 10000;
 
   window.axios.interceptors.request.use(
-    function (config) {
-      removePending(config);
-      config.cancelToken = new CancelToken(c => {
+    function (config: axiosPackage.AxiosRequestConfig) {
+      removePending(config as any);
+      config.cancelToken = new CancelToken((c: any) => {
         axiosPendingArr.push({ u: config.url + '&' + config.method, cancel: c });
       });
       requestTimes++;
@@ -40,24 +40,24 @@ export const axiosInterceptorsConfig = () => {
       if (token) {
         try {
           const tokenInfo = JSON.parse(token);
-          config.headers.Authorization = tokenInfo.access_token;
-          config.headers['collection-Name'] = localStorage.getItem('collectionName');
-          config.headers['recent-Time'] = localStorage.getItem('recentTimeRecord');
+          config.headers!.Authorization = tokenInfo.access_token;
+          (config.headers as any)['collection-Name'] = localStorage.getItem('collectionName');
+          (config.headers as any)['recent-Time'] = localStorage.getItem('recentTimeRecord');
         } catch (err) {
           console.error('axios.interceptors parse token err', err);
         }
       }
       return config;
     },
-    function (err) {
+    function (err: Error) {
       console.error('axios.interceptors.request err', err);
       return Promise.reject(err);
     },
   );
 
   window.axios.interceptors.response.use(
-    response => {
-      removePending(response.config);
+    (response: axiosPackage.AxiosResponse) => {
+      removePending(response.config as any);
       if (response) {
         if (response.data.result && response.data.result.token) {
           localStorage.setItem('tk', JSON.stringify(response.data.result.token));
@@ -69,7 +69,7 @@ export const axiosInterceptorsConfig = () => {
         return Promise.reject('no response');
       }
     },
-    error => {
+    (error: axiosPackage.AxiosError | any) => {
       if (error && error.response) {
         if (!error.response.data) {
           console.error('axios.interceptors.response.use error.response', error.response);
@@ -166,6 +166,7 @@ export const formatDate = (fmt: string, timestamp?: number) => {
   }
   for (const k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
+      //@ts-ignore
       fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
     }
   }
@@ -177,7 +178,7 @@ export const parseUrlParams = () => {
   const search = location.href.split('?')[1];
   if (search) {
     const paramArr = search.split('&');
-    paramArr.forEach(param => {
+    paramArr.forEach((param) => {
       const propArr = param.split('=');
       result[propArr[0]] = propArr[1];
     });
@@ -185,7 +186,7 @@ export const parseUrlParams = () => {
   return result;
 };
 
-export const getFormatTime = time => {
+export const getFormatTime = (time: number) => {
   if (time < 1000) {
     return time + '毫秒';
   } else if (time >= 1000 && time < 1000 * 60) {

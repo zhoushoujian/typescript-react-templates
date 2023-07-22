@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
-import Loadable from 'react-loadable';
 import { connect } from 'react-redux';
 import Loading from '@/components/loading';
-import { updateRedux } from '@/ducks/common';
+import { updateRedux } from '@/ducks/common'
 import { $getState, $dispatch } from '@/ducks/main';
 import Style from './index.less';
 
@@ -14,7 +13,6 @@ const Test = ({ redux }) => {
 
   useEffect(() => {
     // console.log('Object.fromEntries', Object.fromEntries);
-    Loadable.preloadAll();
     $dispatch(updateRedux('redux update'));
   }, []);
 
@@ -33,7 +31,7 @@ const Test = ({ redux }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     redux: state.common.redux,
   };
