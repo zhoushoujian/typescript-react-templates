@@ -19,11 +19,6 @@
     "source.fixAll.eslint": true
   },
   "editor.tabSize": 2,
-  "stylelint.syntax": "less",
-  "stylelint.validate": [
-    "css",
-    "less"
-  ],
   "css.validate": false,
   "less.validate": false,
   "[less]": {

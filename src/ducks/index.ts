@@ -10,18 +10,16 @@ const reducersMap: any = {
 
 export default combineReducers({
   ...Object.keys(reducersMap).reduce(
-    (item, total) =>
-      // eslint-disable-next-line implicit-arrow-linebreak
-      Object.assign({}, item, {
-        [total]: (state, action) => {
+    (total, item) =>
+      Object.assign({}, total, {
+        [item]: (state: any, action: any) => {
           if (!state) {
-            return Object.keys(reducersMap[total])
-              .map((i) => reducersMap[total][i](state, action))
+            return Object.keys(reducersMap[item])
+              .map((i) => reducersMap[item][i](state, action))
               .reduce((prev, next) => Object.assign({}, prev, next), {});
           } else {
-            Object.keys(reducersMap[total]).map((i) => {
-              // eslint-disable-next-line no-return-assign
-              return (state = Object.assign({}, state, reducersMap[total][i](state, action)));
+            Object.keys(reducersMap[item]).forEach((i) => {
+              Object.assign(state, reducersMap[item][i](state, action));
             });
             return state;
           }

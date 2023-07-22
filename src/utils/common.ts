@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { message } from 'antd';
 import * as axiosPackage from 'axios';
 
@@ -33,6 +32,7 @@ export const axiosInterceptorsConfig = () => {
           currentDate = Date.now();
           requestTimes = 0;
         } else {
+          // eslint-disable-next-line no-console
           console.error('more calls in short time, config', config);
         }
       }
@@ -44,12 +44,14 @@ export const axiosInterceptorsConfig = () => {
           (config.headers as any)['collection-Name'] = localStorage.getItem('collectionName');
           (config.headers as any)['recent-Time'] = localStorage.getItem('recentTimeRecord');
         } catch (err) {
+          // eslint-disable-next-line no-console
           console.error('axios.interceptors parse token err', err);
         }
       }
       return config;
     },
     function (err: Error) {
+      // eslint-disable-next-line no-console
       console.error('axios.interceptors.request err', err);
       return Promise.reject(err);
     },
@@ -64,18 +66,22 @@ export const axiosInterceptorsConfig = () => {
         }
         return response.data.result;
       } else {
+        // eslint-disable-next-line no-console
         console.error('axios.interceptors no response', response);
         // eslint-disable-next-line prefer-promise-reject-errors
-        return Promise.reject('no response');
+        return Promise.reject(new Error('no response'));
       }
     },
     (error: axiosPackage.AxiosError | any) => {
       if (error && error.response) {
         if (!error.response.data) {
+          // eslint-disable-next-line no-console
           console.error('axios.interceptors.response.use error.response', error.response);
         } else if (!error.response.data.result) {
+          // eslint-disable-next-line no-console
           console.error('axios.interceptors.response.use error.response.data', error.response.data);
         } else if (error.response.data.result.errText === 'ip blocked') {
+          // eslint-disable-next-line no-console
           console.error('axios.interceptors.response.use ip blocked');
           if (!visitApiMoreTimes) {
             message.error('您在短时间内访问服务器次数过多，请稍后重试');
@@ -95,6 +101,7 @@ export const axiosInterceptorsConfig = () => {
               location.replace(location.origin + '#/login');
               return Promise.reject(error.response.data.result);
             default:
+              // eslint-disable-next-line no-console
               console.error(`error.response.data.result.errCode: ${error.response.data.result.errCode}`);
               break;
           }
@@ -119,6 +126,7 @@ export const axiosInterceptorsConfig = () => {
         message.error('系统错误，请联系管理员');
       } else {
         message.error('未知错误');
+        // eslint-disable-next-line no-console
         console.log('未知错误 response', response);
       }
       return Promise.reject(response); // 返回接口的错误信息

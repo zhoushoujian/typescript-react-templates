@@ -22,7 +22,6 @@ const prod = smp.wrap(
     output: {
       //@ts-ignore
       pathinfo: false,
-      // publicPath: './web-monitor/',
       path: path.resolve(__dirname, '../dist'),
       filename: 'static/js/[name].bundle.js',
       chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',

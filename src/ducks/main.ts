@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import reducer from '@/ducks';
 
-const middleware = [thunk];
+const middleware: any[] = [thunk];
 middleware.push(
   createLogger({
     collapsed: false,

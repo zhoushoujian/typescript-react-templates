@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Loading from '@/components/loading';
-import { updateRedux } from '@/ducks/common'
+import { updateRedux } from '@/ducks/common';
 import { $getState, $dispatch } from '@/ducks/main';
 import Style from './index.less';
 
 console.log('get redux data => ', $getState().common.redux);
 
-const Test = ({ redux }) => {
+const Test = ({ redux }: { redux: string }) => {
   console.log('redux => ', redux);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Test = ({ redux }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: { common: { redux: string } }) => {
   return {
     redux: state.common.redux,
   };

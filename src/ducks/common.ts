@@ -24,7 +24,7 @@ export default function reducer(state = initialState(), action: IAction) {
 }
 
 // update
-export const updateRedux = (data) => {
+export const updateRedux = (data: string) => {
   return {
     type: REDUX,
     data,
