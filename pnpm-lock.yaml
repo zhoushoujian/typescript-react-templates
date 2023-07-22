@@ -9,7 +9,6 @@ specifiers:
   '@babel/runtime-corejs3': ^7.12.5
   '@commitlint/cli': ^17.6.6
   '@shuyun-ep-team/commitlint-config': ^1.1.0
-  '@shuyun-ep-team/eslint-config': ^2.5.0
   '@shuyun-ep-team/kylin-husky': ^1.1.0
   '@shuyun-ep-team/specified-package-version-check': ^1.10.5
   '@swc/core': ^1.3.41
@@ -96,7 +95,6 @@ devDependencies:
   '@babel/runtime-corejs3': 7.22.6
   '@commitlint/cli': 17.6.7_@swc+core@1.3.70
   '@shuyun-ep-team/commitlint-config': 1.1.0
-  '@shuyun-ep-team/eslint-config': 2.5.0_typescript@5.1.6
   '@shuyun-ep-team/kylin-husky': 1.1.0
   '@shuyun-ep-team/specified-package-version-check': 1.10.6
   '@swc/core': 1.3.70
@@ -2512,36 +2510,6 @@ packages:
       conventional-changelog-conventionalcommits: 6.1.0
     dev: true
 
-  /@shuyun-ep-team/eslint-config/2.5.0_typescript@5.1.6:
-    resolution: {integrity: sha512-RiQr/6FMFkHNJRfjYxcOeTj7gm09hlKtxaL6uX3siILHbJbu74XBv8y6Fmnu1xpBRN8SfiUKZtfAWREvw4P+hA==}
-    dependencies:
-      '@shuyun-ep-team/specified-package-version-check': 1.10.6
-      '@typescript-eslint/eslint-plugin': 5.62.0_a7f4nan5ab6stvzvqvoqzz4rie
-      '@typescript-eslint/parser': 5.62.0_gsjcde7vtyx77zujqq4bik42o4
-      axios: 0.21.4
-      babel-eslint: 10.1.0_eslint@7.32.0
-      eslint: 7.32.0
-      eslint-config-prettier: 6.15.0_eslint@7.32.0
-      eslint-plugin-babel: 5.3.1_eslint@7.32.0
-      eslint-plugin-import: 2.27.5_6gthzuybl4nrnwlpznxavwjpna
-      eslint-plugin-jsdoc: 34.8.2_eslint@7.32.0
-      eslint-plugin-jsx-a11y: 6.7.1_eslint@7.32.0
-      eslint-plugin-prettier: 3.4.1_6l26irxuevddeh5uhyzqivbl64
-      eslint-plugin-react: 7.33.0_eslint@7.32.0
-      eslint-plugin-react-hooks: 4.6.0_eslint@7.32.0
-      eslint-plugin-tsdoc: 0.2.17
-      eslint-plugin-vue: 7.20.0_eslint@7.32.0
-      figlet: 1.6.0
-      prettier: 2.8.8
-      vue-eslint-parser: 7.11.0_eslint@7.32.0
-    transitivePeerDependencies:
-      - debug
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - supports-color
-      - typescript
-    dev: true
-
   /@shuyun-ep-team/kylin-husky/1.1.0:
     resolution: {integrity: sha512-UfsWuiCLXybzA6KQYKY5kCUKgQdHuhUsijN3wpMrafjnUMHxu+Vf6PHHNDE9v6jiHTv5q6zl12rRBeSPpt1mIw==}
     engines: {node: '>=12'}
@@ -4927,7 +4895,7 @@ packages:
     dev: true
 
   /errno/0.1.8:
-    resolution: {integrity: sha1-i7Ppx9Rjvkl2/4iPdrSAnrwugR8=}
+    resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -5822,7 +5790,7 @@ packages:
     dev: true
 
   /fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=}
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -6294,7 +6262,7 @@ packages:
     dev: true
 
   /image-size/0.5.5:
-    resolution: {integrity: sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=}
+    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
     engines: {node: '>=0.10.0'}
     hasBin: true
     requiresBuild: true
@@ -7006,7 +6974,7 @@ packages:
     dev: true
 
   /make-dir/2.1.0:
-    resolution: {integrity: sha1-XwMQ4YuL6JjMBwCSlaMK5B6R5vU=}
+    resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
     engines: {node: '>=6'}
     requiresBuild: true
     dependencies:
@@ -7095,7 +7063,7 @@ packages:
       mime-db: 1.52.0
 
   /mime/1.6.0:
-    resolution: {integrity: sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=}
+    resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
     hasBin: true
     dev: true
@@ -9159,7 +9127,7 @@ packages:
     dev: true
 
   /source-map/0.6.1:
-    resolution: {integrity: sha1-dHIq8y6WFOnCh6jQu95IteLxomM=}
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
     dev: true
 
