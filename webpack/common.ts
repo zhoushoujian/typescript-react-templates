@@ -2,8 +2,7 @@ import * as path from 'path';
 //@ts-ignore
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-//@ts-ignore
-import consoleFormat from 'console-format';
+import { consoleFormat } from '@szhou/script-tools';
 import config from './config';
 
 const { srcPath, moduleFileExtensions, appPath } = config;

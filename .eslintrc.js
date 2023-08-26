@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint-config-ts-base'],
+  extends: ['@szhou/eslint-config'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

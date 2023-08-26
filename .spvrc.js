@@ -1,5 +1,5 @@
 module.exports = {
-  dependenceArr: ['eslint-config-ts-base'],
+  dependenceArr: ['@szhou/eslint-config'],
   ignoreCheck: false,
   onlyWarn: false,
   checkAllLocalDependencies: false,
