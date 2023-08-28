@@ -26,5 +26,8 @@
       "source.fixAll.stylelint": true
     }
   },
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "cSpell.words": [
+    "szhou"
+  ]
 }

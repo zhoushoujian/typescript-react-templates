@@ -7,7 +7,8 @@
       "DOM.Iterable",
       "ESNext"
     ],
-    "allowJs": true,
+    "allowJs": false,
+    "checkJs": false,
     "jsx": "react",
     "sourceMap": true,
     "outDir": "./dist",
@@ -45,5 +46,5 @@
       "module": "commonjs"
     }
   },
-  "include": ["src"]
+  "include": ["src", "webpack", ".eslintrc.js"]
 }
