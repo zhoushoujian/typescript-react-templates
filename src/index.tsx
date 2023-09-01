@@ -18,3 +18,10 @@ root.render(
     </Provider>
   </React.StrictMode>,
 );
+
+// 开发环境开启热更新
+if (process.env.NODE_ENV === 'development' && typeof module !== 'undefined') {
+  if ((module as any).hot) {
+    (module as any).hot.accept();
+  }
+}

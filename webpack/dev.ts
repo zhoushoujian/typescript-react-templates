@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+//@ts-ignore
 import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
@@ -13,7 +14,11 @@ const dev = merge(commonConf, {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    entrance: ['webpack-hot-middleware/client?name=pure', path.join(__dirname, '../src/index.tsx')],
+    entrance: [
+      'webpack-hot-middleware/client?name=pure',
+      path.join(__dirname, '../src/index.tsx'),
+      'antd/dist/reset.css',
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -1,8 +1,10 @@
 import * as path from 'path';
 import webpack from 'webpack';
+//@ts-ignore
 import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+//@ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import config from './config';
@@ -18,7 +20,7 @@ const prod = smp.wrap(
     devtool: 'nosources-source-map',
     context: appPath,
     bail: true,
-    entry: [path.join(srcPath, '../src/index.tsx')],
+    entry: [path.join(srcPath, '../src/index.tsx'), 'antd/dist/reset.css'],
     output: {
       //@ts-ignore
       pathinfo: false,
