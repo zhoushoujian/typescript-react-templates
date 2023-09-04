@@ -8,7 +8,7 @@ import Style from './index.less';
 
 console.log('get redux data => ', $getState().common.redux);
 
-const Test = ({ redux }: { redux: string }) => {
+const Home = ({ redux }: { redux: string }) => {
   console.log('redux => ', redux);
 
   useEffect(() => {
@@ -39,4 +39,4 @@ const mapStateToProps = (state: { common: { redux: string } }) => {
 
 const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
