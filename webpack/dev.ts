@@ -3,6 +3,7 @@ import webpack from 'webpack';
 //@ts-ignore
 import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import config from './config';
@@ -38,6 +39,7 @@ const dev = merge(commonConf, {
       allowAsyncCycles: false,
       cwd: process.cwd(),
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
   // devServer: {
   //   historyApiFallback: true,

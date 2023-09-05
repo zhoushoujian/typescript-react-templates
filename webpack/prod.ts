@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 //@ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import config from './config';
 import commonConf from './common';
@@ -74,6 +75,14 @@ const prod = smp.wrap(
       new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
         chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.join(publicPath, 'favicon.ico'),
+            to: 'favicon.ico',
+          },
+        ],
       }),
     ],
   }),
