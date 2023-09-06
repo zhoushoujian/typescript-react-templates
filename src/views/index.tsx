@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Loading from '@/components/loading';
 import { updateRedux } from '@/ducks/common';
 import { $getState, $dispatch } from '@/ducks/main';
-import Style from './index.less';
+import Style from './index.module.less';
 
 console.log('get redux data => ', $getState().common.redux);
 

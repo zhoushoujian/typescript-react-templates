@@ -21,21 +21,22 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "strictPropertyInitialization": true,
-    "noImplicitThis": true, 
-    "noUnusedLocals": true ,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     /* Module Resolution Options */
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
-    } ,
+      "@/*": [
+        "src/*"
+      ],
+    },
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true ,
+    "esModuleInterop": true,
     /* Experimental Options */
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
@@ -46,5 +47,11 @@
       "module": "commonjs"
     }
   },
-  "include": ["src", "webpack", ".eslintrc.js"]
+  "include": [
+    "src",
+    "webpack",
+    ".eslintrc.js",
+    "www.ts",
+    "vite.config.ts"
+  ]
 }

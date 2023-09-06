@@ -1,11 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+//@ts-ignore
 import vitePluginLess2CssModule from 'vite-plugin-less-2cssmodule';
+import { consoleFormat } from '@szhou/script-tools';
+
+consoleFormat();
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root: path.resolve(__dirname, './src'),
+  publicDir: path.resolve(__dirname, './public'),
   //@ts-ignore
   plugins: [react(), vitePluginLess2CssModule()],
   clearScreen: false,
@@ -13,6 +18,18 @@ export default defineConfig({
     port: 8080,
     strictPort: true,
     open: true,
+    hmr: true,
+    proxy: {
+      '/api': {
+        target: 'http://10.30.4.94:8077',
+        changeOrigin: true,
+        rewrite: (path: string) => {
+          // eslint-disable-next-line no-console
+          console.log('proxy received, path: ', path);
+          return `http://10.30.4.94:8077${path}`;
+        },
+      },
+    },
   },
   envPrefix: ['VITE_'],
   build: {
@@ -27,13 +44,6 @@ export default defineConfig({
   },
   // optimizeDeps: {
   //   force: true, // 强制进行依赖预构建
-  // },
-  // proxy: {
-  //   '/api': {
-  //     target: 'http url',
-  //     changeOrigin: true,
-  //     rewrite: (path: string) => path.replace(/^\/api/, ''),
-  //   },
   // },
   css: {
     modules: {

@@ -15,11 +15,7 @@ const dev = merge(commonConf, {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    entrance: [
-      'webpack-hot-middleware/client?name=pure',
-      path.join(__dirname, '../src/index.tsx'),
-      'antd/dist/reset.css',
-    ],
+    entrance: ['webpack-hot-middleware/client?name=pure', path.join(__dirname, '../src/index.tsx')],
   },
   plugins: [
     new HtmlWebpackPlugin({

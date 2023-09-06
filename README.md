@@ -4,7 +4,7 @@
 
 ## Framework
 
-react + redux + typescript + webpack + less + css module + eslint + axios封装拦截器
+react18 + redux + typescript + webpack5 + less + css module + eslint
 
 ## Install
 

@@ -21,7 +21,7 @@ const prod = smp.wrap(
     devtool: 'nosources-source-map',
     context: appPath,
     bail: true,
-    entry: [path.join(srcPath, '../src/index.tsx'), 'antd/dist/reset.css'],
+    entry: [path.join(srcPath, '../src/index.tsx')],
     output: {
       //@ts-ignore
       pathinfo: false,

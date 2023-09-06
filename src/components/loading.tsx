@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './index.less';
+import Style from './index.module.less';
 
 const colors = ['#fff', '#ff0', '#f00', '#f0f', '#0ff', '#00f', '#0f0'];
 
