@@ -3,6 +3,7 @@ import * as path from 'path';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { consoleFormat } from '@szhou/script-tools';
+import webpack from 'webpack';
 import config from './config';
 
 const { srcPath, moduleFileExtensions, appPath } = config;
@@ -96,7 +97,13 @@ const common = {
       },
     ],
   },
-  plugins: [new ProgressBarPlugin()],
+  plugins: [
+    new ProgressBarPlugin(),
+    new webpack.ProvidePlugin({}),
+    new webpack.DefinePlugin({
+      process: { env: {} },
+    }),
+  ],
 };
 
 export default common;
