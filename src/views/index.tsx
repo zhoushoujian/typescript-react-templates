@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Loading from '@/components/loading';
 import { updateRedux } from '@/ducks/common';
 import { $getState, $dispatch } from '@/ducks/main';
+import { request } from '@/utils/request';
+import { IRes } from '@/@types/common';
 import Style from './index.module.less';
 
 console.log('get redux data => ', $getState().common.redux);
@@ -14,6 +16,9 @@ const Home = ({ redux }: { redux: string }) => {
   useEffect(() => {
     // console.log('Object.fromEntries', Object.fromEntries);
     $dispatch(updateRedux('redux update'));
+    request('https://api.zhoushoujian.com').then((res: IRes<{ apiCount: string; date: string }>) => {
+      console.log('res', res);
+    });
   }, []);
 
   return (
