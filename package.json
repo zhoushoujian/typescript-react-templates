@@ -1,10 +1,10 @@
 {
-  "name": "typescript-react-templates",
+  "name": "frontend-project-scaffold",
   "version": "1.1.0",
   "homepage": "/",
   "main": "src/index.tsx",
   "author": "shoujian zhou",
-  "description": "typescript-react-templates",
+  "description": "基于react的ts脚手架项目",
   "scripts": {
     "codeCheck": "eslint -c .eslintrc.js \"./src/**/*.{js,ts,tsx,jsx}\" --fix && npm run typeCheck",
     "start": "concurrently \"cross-env NODE_ENV=development ts-node www.ts\" \"npx specified-package-version-check",
