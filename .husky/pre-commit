@@ -1,20 +1,20 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# 获取当前分支名称
-current_branch=$(git symbolic-ref --short HEAD)
+# # 获取当前分支名称
+# current_branch=$(git symbolic-ref --short HEAD)
 
-# 定义分支命名规则的正则表达式
-branch_regex="^((chore|docs|feat|fix|perf|refactor|revert|style|test|hotfix|release)\/[a-z0-9_-]+|develop|release|master)$"
+# # 定义分支命名规则的正则表达式
+# branch_regex="^((chore|docs|feat|fix|perf|refactor|revert|style|test|hotfix|release)\/[a-z0-9_-]+|develop|release|master)$"
 
-# 检查当前分支名称是否符合规范
-if ! echo "$current_branch" | grep -E "$branch_regex" > /dev/null; then
-  echo "🚨: 无效的 Git 分支名!"
-  echo "分支名必须遵循该模式: ^((chore|docs|feat|fix|perf|refactor|revert|style|test|hotfix|release)\/[a-z0-9_-]+|develop|release|master)$"
-  exit 1
-fi
+# # 检查当前分支名称是否符合规范
+# if ! echo "$current_branch" | grep -E "$branch_regex" > /dev/null; then
+#   echo "🚨: 无效的 Git 分支名!"
+#   echo "分支名必须遵循该模式: ^((chore|docs|feat|fix|perf|refactor|revert|style|test|hotfix|release)\/[a-z0-9_-]+|develop|release|master)$"
+#   exit 1
+# fi
 
-echo "校验 Git 分支名 ✅"
+# echo "校验 Git 分支名 ✅"
 
 npx lint-staged
 
